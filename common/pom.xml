@@ -16,6 +16,13 @@
     <dependencies>
 
         <dependency>
+            <artifactId>configuration</artifactId>
+            <groupId>com.carrey</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
@@ -76,6 +83,13 @@
             <groupId>com.vip.vjtools</groupId>
             <artifactId>vjkit</artifactId>
         </dependency>
+
+        <!--RabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

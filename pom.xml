@@ -5,8 +5,11 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>configuration</module>
         <module>common</module>
         <module>web</module>
+        <module>rabbit-producer</module>
+        <module>rabbit-consumers</module>
     </modules>
 
     <parent>

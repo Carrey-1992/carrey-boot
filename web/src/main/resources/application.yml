@@ -1,4 +1,7 @@
 server:
-    port: 8086
-logging:
-  config: classpath:logback-boot.xml
+  port: 8081
+
+
+spring:
+  profiles:
+    active: local
