@@ -12,6 +12,7 @@
         <module>rabbit-consumers</module>
         <module>demo-eureka</module>
         <module>demo-ribbon</module>
+        <module>demo-feign</module>
     </modules>
 
     <parent>
