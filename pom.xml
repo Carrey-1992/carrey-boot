@@ -13,12 +13,13 @@
         <module>demo-eureka</module>
         <module>demo-ribbon</module>
         <module>demo-feign</module>
+        <module>demo-zuul</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.0.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
