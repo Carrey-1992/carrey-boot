@@ -1,6 +1,13 @@
 server:
-  port: 8083
+  port: 8764
 
 spring:
+  application:
+    name: rabbit-consumer
   profiles:
     active: local
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

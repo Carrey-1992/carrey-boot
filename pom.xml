@@ -11,6 +11,7 @@
         <module>rabbit-producer</module>
         <module>rabbit-consumers</module>
         <module>demo-eureka</module>
+        <module>demo-ribbon</module>
     </modules>
 
     <parent>
