@@ -10,6 +10,7 @@
         <module>web</module>
         <module>rabbit-producer</module>
         <module>rabbit-consumers</module>
+        <module>demo-eureka</module>
     </modules>
 
     <parent>
@@ -28,10 +29,19 @@
     <properties>
         <java.version>1.8</java.version>
         <lombok.version>1.16.6</lombok.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.spring.platform/platform -->
             <dependency>
