@@ -1,0 +1,25 @@
+spring:
+  application.name: config-server
+  cloud:
+    config:
+      #配置仓库的分支
+      label: master
+      server:
+        git:
+          #配置git仓库地址
+          uri: https://github.com/Carrey-1992/Carrey-CloudConfig
+          #配置仓库路径
+          searchPaths: configDir
+          #访问git仓库的用户名
+          username:
+          #访问git仓库的用户密码
+          password:
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+

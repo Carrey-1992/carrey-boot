@@ -6,6 +6,7 @@
 
     <modules>
         <module>configuration</module>
+        <module>demo-config</module>
         <module>common</module>
         <module>web</module>
         <module>demo-eureka</module>
