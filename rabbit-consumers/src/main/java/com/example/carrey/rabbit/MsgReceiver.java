@@ -1,5 +1,6 @@
 package com.example.carrey.rabbit;
 
+import com.example.carrey.config.RabbitConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

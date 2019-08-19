@@ -4,5 +4,4 @@ com/example/carrey/factory/IntCodeUniversalEnumConverterFactory$IntCodeToEnumCon
 com/example/carrey/config/CodeToEnumWebAppConfigurer.class
 com/example/carrey/enums/IntCodeToEnum.class
 com/example/carrey/factory/IntCodeUniversalEnumConverterFactory.class
-com/example/carrey/config/RabbitConfig.class
 com/example/carrey/enums/StrCodeToEnum.class
