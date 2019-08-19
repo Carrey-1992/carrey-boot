@@ -48,3 +48,5 @@ spring:
         include: bus-refresh
 ```
 3.刷新链接为：http://localhost:8888/actuator/bus-refresh 端口号即为config-server的端口号。
+
+<a href="https://blog.csdn.net/qq_27828675/article/details/83505630" target="_blank">参考博客链接请点击</a>
