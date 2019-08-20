@@ -12,6 +12,7 @@
         <module>demo-ribbon</module>
         <module>demo-feign</module>
         <module>demo-zuul</module>
+        <module>demo-sleuth</module>
         <module>rabbit-producer</module>
         <module>rabbit-consumers</module>
     </modules>
