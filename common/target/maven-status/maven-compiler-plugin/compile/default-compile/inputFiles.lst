@@ -1,5 +1,5 @@
-/Users/carrey/IdeaProjects/carrey-boot/common/src/main/java/com/example/carrey/enums/IntCodeToEnum.java
-/Users/carrey/IdeaProjects/carrey-boot/common/src/main/java/com/example/carrey/config/CodeToEnumWebAppConfigurer.java
-/Users/carrey/IdeaProjects/carrey-boot/common/src/main/java/com/example/carrey/factory/StrCodeUniversalEnumConverterFactory.java
-/Users/carrey/IdeaProjects/carrey-boot/common/src/main/java/com/example/carrey/enums/StrCodeToEnum.java
-/Users/carrey/IdeaProjects/carrey-boot/common/src/main/java/com/example/carrey/factory/IntCodeUniversalEnumConverterFactory.java
+/Users/wangkangwei/IdeaProjects/demo/carrey-boot/common/src/main/java/com/example/carrey/config/CodeToEnumWebAppConfigurer.java
+/Users/wangkangwei/IdeaProjects/demo/carrey-boot/common/src/main/java/com/example/carrey/enums/IntCodeToEnum.java
+/Users/wangkangwei/IdeaProjects/demo/carrey-boot/common/src/main/java/com/example/carrey/enums/StrCodeToEnum.java
+/Users/wangkangwei/IdeaProjects/demo/carrey-boot/common/src/main/java/com/example/carrey/factory/IntCodeUniversalEnumConverterFactory.java
+/Users/wangkangwei/IdeaProjects/demo/carrey-boot/common/src/main/java/com/example/carrey/factory/StrCodeUniversalEnumConverterFactory.java
