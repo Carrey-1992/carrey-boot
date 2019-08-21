@@ -13,6 +13,7 @@
         <module>demo-feign</module>
         <module>demo-zuul</module>
         <module>demo-sleuth</module>
+        <module>demo-turbine</module>
         <module>rabbit-producer</module>
         <module>rabbit-consumers</module>
     </modules>
