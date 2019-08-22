@@ -12,7 +12,12 @@ spring:
       name: web
       profile: dev
       #配置中心的具体地址,向该URL读取配置文件
-      uri: http://localhost:8888
+      #uri: http://localhost:8888
       #当访问不到，则执行快速失败
       failFast: true
+      discovery:
+        #spring.cloud.config.discovery.enabled 是从配置中心读取文件。
+        enabled: true
+        #spring.cloud.config.discovery.serviceId 配置中心的servieId，即服务名。
+        serviceId: config-server
 
