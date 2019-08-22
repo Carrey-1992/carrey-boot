@@ -1,6 +1,7 @@
 # carrey-boot
 ## carrey私有的练习项目
 ---
+## 注意事项
 ### spring-cloud-bus：
 1.当集成消息总线时，要注意config-server和config-client都要添加相关依赖jar包:</br>
 ```
@@ -48,5 +49,18 @@ spring:
         include: bus-refresh
 ```
 3.刷新链接为：http://localhost:8888/actuator/bus-refresh 端口号即为config-server的端口号。
-
-<a href="https://blog.csdn.net/qq_27828675/article/details/83505630" target="_blank">参考博客链接请点击</a>
+---
+### spring-sloud-sleuth
+在client端的配置文件中要进行如下sleuth.sampler.probability配置,否则服务不起作用。
+```
+spring:
+  profiles:
+    include: dev-eureka,dev-logback
+  zipkin:
+    base-url: http://localhost:9411
+  #spring.sleuth.sampler.probalility指定采样百分比，默认0.1，改成1.0表示所有数据都采用
+  sleuth:
+    sampler:
+      probability: 1.0
+```
+<a href="https://blog.csdn.net/forezp/article/details/70148833" target="_blank">参考博客链接请点击:https://blog.csdn.net/forezp/article/details/70148833</a>
