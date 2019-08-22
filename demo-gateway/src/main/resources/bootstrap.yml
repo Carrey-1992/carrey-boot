@@ -1,0 +1,98 @@
+server:
+  port: 8769
+
+spring:
+  application:
+    name: demo-gateway
+  profiles:
+    active: rewritepath_route
+#  cloud:
+#    config:
+#      #对应git的分支。如果配置中心使用的是本地存储，则该参数无用
+#      label: master
+#      #以下name和profile属性两个值对应到远程仓库中的配置文件名如:web-dev.yml
+#      name: demo-gateway
+#      profile: dev
+#      #配置中心的具体地址,向该URL读取配置文件
+#      #uri: http://localhost:8888
+#      #当访问不到，则执行快速失败
+#      failFast: true
+#      discovery:
+#        #spring.cloud.config.discovery.enabled 是从配置中心读取文件。
+#        enabled: true
+#        #spring.cloud.config.discovery.serviceId 配置中心的servieId，即服务名。
+#        serviceId: config-server
+
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+      #id标签配置的是router的id，每个router都需要一个唯一的id
+        - id: after_route
+        #uri配置的是将请求路由到哪里,本案例全部路由到http://httpbin.org:80/get。
+          uri: http://httpbin.org:80/get
+          #predicates：
+            #After=2017-01-20T17:42:47.789-07:00[America/Denver] 会被解析成PredicateDefinition对象
+            #（name =After ，args= 2017-01-20T17:42:47.789-07:00[America/Denver]）。
+            # 在这里需要注意的是predicates的After这个配置，遵循的契约大于配置的思想，
+            # 它实际被AfterRoutePredicateFactory这个类所处理，这个After就是指定了它的Gateway web handler类
+            # 为AfterRoutePredicateFactory，同理，其他类型的predicate也遵循这个规则。
+            # 当请求的时间在这个配置的时间之后，请求会被路由到http://httpbin.org:80/get。
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+  profiles: after_route
+
+---
+#Header Route Predicate Factory需要2个参数，一个是header名，
+#另外一个header值，该值可以是一个正则表达式。当此断言匹配了请求的header名和值时，
+#断言通过，进入到router的规则中去。
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: header_route
+          uri: http://httpbin.org:80/get
+          predicates:
+            - Header=X-Request-Id, \d+
+  profiles: header_route
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: cookie_route
+          uri: http://httpbin.org:80/get
+          predicates:
+            - Cookie=name, forezp
+  profiles: cookie_route
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          uri: http://httpbin.org:80/get
+          predicates:
+            - Path=/foo
+  profiles: path_route
+
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: rewritepath_route
+          uri: https://blog.csdn.net
+          predicates:
+            - Path=/foo/**
+          filters:
+            - RewritePath=/foo/(?<segment>.*), /$\{segment}
+  profiles: rewritepath_route
+
+
+
