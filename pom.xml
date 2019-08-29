@@ -17,6 +17,7 @@
         <module>demo-turbine</module>
         <module>rabbit-producer</module>
         <module>rabbit-consumers</module>
+        <module>demo-groovy</module>
     </modules>
 
     <parent>
