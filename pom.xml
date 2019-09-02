@@ -5,20 +5,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>demo-eureka</module>
-        <module>demo-config</module>
         <module>common</module>
-        <module>web</module>
-        <module>demo-gateway</module>
-        <module>demo-ribbon</module>
-        <module>demo-feign</module>
-        <module>demo-zuul</module>
-        <module>demo-sleuth</module>
-        <module>demo-turbine</module>
-        <module>rabbit-producer</module>
-        <module>rabbit-consumers</module>
         <module>demo-groovy</module>
         <module>demo-mybatis-plus</module>
+        <module>demo-spring-cloud</module>
+        <module>demo-rabbit</module>
     </modules>
 
     <parent>
