@@ -18,6 +18,7 @@
         <module>rabbit-producer</module>
         <module>rabbit-consumers</module>
         <module>demo-groovy</module>
+        <module>demo-mybatis-plus</module>
     </modules>
 
     <parent>
