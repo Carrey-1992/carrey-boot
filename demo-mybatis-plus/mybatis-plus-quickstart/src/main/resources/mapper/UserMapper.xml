@@ -7,4 +7,9 @@
     FROM user
     WHERE id = #{id}
     </select>
+
+    <insert id="createUser"  useGeneratedKeys="true" keyProperty="ID" >
+        INSERT INTO user(id, name, age, email) VALUES
+        (#{id},#{name},#{age},#{email})
+    </insert>
 </mapper>
