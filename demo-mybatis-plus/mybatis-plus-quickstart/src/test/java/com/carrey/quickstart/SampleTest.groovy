@@ -18,8 +18,8 @@ class SampleTest {
     @Test
     void testSelect() {
         println "----- selectAll method test ------"
-        def userList = userMapper.selectList  null
-        Assert.assertEquals 5, userList.size()
-        userList.each {println it}
+        def user = userMapper.getInfo  1
+        Assert.assertEquals "Jone", user.getName()
+        println user
     }
 }

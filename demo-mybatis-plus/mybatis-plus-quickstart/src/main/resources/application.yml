@@ -1,8 +1,13 @@
 server:
   port: 8066
 
+spring:
+  profiles:
+    include: test
+---
 # DataSource Config
 spring:
+  profiles: test
   datasource:
     driver-class-name: org.h2.Driver
     schema: classpath:db/schema-h2.sql
