@@ -24,7 +24,7 @@ import java.util.Properties;
                 }
         )}
 )
-public class MyExecutorInterceptor implements Interceptor {
+public class MyExecutorPlugin implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         Object target = invocation.getTarget();
