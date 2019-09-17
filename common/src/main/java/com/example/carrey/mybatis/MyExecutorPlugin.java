@@ -70,9 +70,17 @@ public class MyExecutorPlugin implements Interceptor {
                 }
                 if(Objects.nonNull(updateAt)){
                     ReflectionUtil.setFieldValue(obj,field.getName(),new Date());
+                    break;
                 }
             }
             if (Objects.equals("insert",name)) {
+                if (Objects.nonNull(createBy)) {
+                    //TODO: 从上下文中获取用户id进行set
+                }
+                if (Objects.nonNull(createAt)) {
+                    ReflectionUtil.setFieldValue(obj,field.getName(),new Date());
+                    break;
+                }
 
             }
         }
