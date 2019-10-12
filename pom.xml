@@ -10,6 +10,7 @@
         <module>demo-mybatis-plus</module>
         <module>demo-spring-cloud</module>
         <module>demo-rabbit</module>
+        <module>demo-easypoi</module>
     </modules>
 
     <parent>
