@@ -17,8 +17,11 @@ public class MyLockTest {
       new Thread(()->{
         //进行转账
         src.transactionToTarget(1,target);
-        target.transactionToTarget(1,src);
         //countDownLatch.countDown();
+      }).start();
+
+      new Thread(()->{
+        target.transactionToTarget(1,src);
       }).start();
     }
     //countDownLatch.await();
