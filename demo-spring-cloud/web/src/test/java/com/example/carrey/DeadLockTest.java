@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author Carrey
@@ -15,17 +16,18 @@ import java.util.List;
  */
 public class DeadLockTest {
   @Test
-  public void test() {
+  public void test() throws InterruptedException {
     Account a = new Account(30000, 1);
     Account b = new Account(20000, 2);
-
-    for (int i = 0; i < 10000; i++) {
+    CountDownLatch countDownLatch = new CountDownLatch(1000);
+    for (int i = 0; i < 500; i++) {
       Thread thread1 = new Thread(() -> {
         try {
           a.transfer(b, 1);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
+          countDownLatch.countDown();
       });
 
       Thread thread2 = new Thread(() -> {
@@ -34,12 +36,12 @@ public class DeadLockTest {
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
+          countDownLatch.countDown();
       });
-
       thread1.start();
       thread2.start();
     }
-
+      countDownLatch.await();
     System.out.println("a balance:" + a.getBalance());
     System.out.println("b balance:" + b.getBalance());
     System.out.println("---------------------------");
@@ -57,7 +59,7 @@ public class DeadLockTest {
     void transfer(Account target, int amt) throws InterruptedException {
       //List<Account> list = getAccountList(target);
       Thread.sleep(1);
-      while (!allocator.apply(this, target)) ;
+      allocator.apply(this, target);
       try {
         // 锁定转出账户
         synchronized (this) {
@@ -109,18 +111,21 @@ public class DeadLockTest {
 
     private List<Object> list = Lists.newArrayList();
 
-    synchronized boolean apply(Object from, Object to) {
+    synchronized void apply(Object from, Object to) {
       if (list.contains(from) || list.contains(to)) {
-        return false;
+          try {
+              this.wait();
+          } catch (InterruptedException e) {
+          }
       }
       list.add(from);
       list.add(to);
-      return true;
     }
 
     synchronized void free(Object from, Object to) {
       list.remove(from);
       list.remove(to);
+      this.notifyAll();
     }
 
     private Allocator() {
