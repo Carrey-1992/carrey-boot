@@ -107,9 +107,14 @@ public class DeadLockTest {
   }
 
 
+  /**
+   * 这是个范式写法，请注意。
+   */
   static class Allocator {
 
     private List<Object> list = Lists.newArrayList();
+
+    private static boolean flag = true;
 
     synchronized void apply(Object from, Object to) {
       if (list.contains(from) || list.contains(to)) {
@@ -129,6 +134,11 @@ public class DeadLockTest {
     }
 
     private Allocator() {
+      if (flag) {
+        flag = false;
+        return;
+      }
+      throw new AssertionError("单例模式被侵犯！");
     }
 
     static class AllocatorHandler {
