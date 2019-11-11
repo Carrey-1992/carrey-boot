@@ -1,5 +1,6 @@
 package com.example.carrey;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.google.common.collect.Lists;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,6 +8,7 @@ import org.junit.Test;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Carrey
@@ -19,11 +21,11 @@ public class DeadLockTest {
   public void test() throws InterruptedException {
     Account a = new Account(30000, 1);
     Account b = new Account(20000, 2);
-    CountDownLatch countDownLatch = new CountDownLatch(1000);
-    for (int i = 0; i < 500; i++) {
+    CountDownLatch countDownLatch = new CountDownLatch(10000);
+    for (int i = 0; i < 5000; i++) {
       Thread thread1 = new Thread(() -> {
         try {
-          a.transfer(b, 1);
+          a.transfer2(b, 2);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
@@ -32,7 +34,7 @@ public class DeadLockTest {
 
       Thread thread2 = new Thread(() -> {
         try {
-          b.transfer(a, 1);
+          b.transfer2(a, 1);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
@@ -55,6 +57,8 @@ public class DeadLockTest {
 
     private int balance;
 
+    private final ReentrantLock reentrantLock = new ReentrantLock(true);
+
     // 转账
     void transfer(Account target, int amt) throws InterruptedException {
       //List<Account> list = getAccountList(target);
@@ -73,6 +77,31 @@ public class DeadLockTest {
         }
       } finally {
         allocator.free(this, target);
+      }
+    }
+
+    // 转账
+    void transfer2(Account target, int amt) throws InterruptedException {
+      //List<Account> list = getAccountList(target);
+      Thread.sleep(1);
+      while (true) {
+        // 锁定转出账户
+        if (this.reentrantLock.tryLock()) {
+          try{
+            // 锁定转入账户
+            if (target.reentrantLock.tryLock()) {
+              try{
+                this.balance -= amt;
+                target.balance += amt;
+                break;
+              }finally {
+                target.reentrantLock.unlock();
+              }
+            }
+          }finally {
+            this.reentrantLock.unlock();
+          }
+        }
       }
     }
 

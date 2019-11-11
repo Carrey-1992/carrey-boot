@@ -31,4 +31,43 @@ public class StampedLockTest {
 
   }
 
+
+  class Point {
+    private int x, y;
+    private final StampedLock lock = new StampedLock();
+    //计算到原点的距离
+    double distanceFromOrigin() {
+      //乐观度
+      long stamp = lock.tryOptimisticRead();
+      //读入局部变量，在读的过程中可能被其他线程修改
+      int curX = x;
+      int curY = y;
+      //判断执行读操作过程中是否被其他线程修改
+      //lock.validate(stamp)返回false则证明被修改
+      if (!lock.validate(stamp)) {
+        //升级为悲观读锁，使x,y具有可见性，
+        // 且在读取x,y的过程中不允许其他线程进行修改
+        stamp = lock.readLock();
+        try {
+          curX = x;
+          curY = y;
+        }finally {
+          //释放悲观读锁
+          lock.unlockRead(stamp);
+        }
+      }
+      return Math.sqrt( curX * curX + curY * curY);
+    }
+
+    void setValue(int x,int y) {
+      long stamp = lock.writeLock();
+      try {
+        this.x = x;
+        this.y = y;
+      }finally {
+        lock.unlockWrite(stamp);
+      }
+    }
+  }
+
 }
