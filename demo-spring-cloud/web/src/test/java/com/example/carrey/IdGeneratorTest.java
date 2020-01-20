@@ -1,5 +1,6 @@
 package com.example.carrey;
 
+import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -52,8 +54,9 @@ public class IdGeneratorTest {
       while (count < 8) {
         int randomAscii = random.nextInt(122);
         RandomCharsContext randomCharsContext = new RandomCharsContext();
-        boolean flag = randomCharsContext.getRandomChars(randomChars, count, randomAscii);
-        if (flag) {
+        char newRandomChars = randomCharsContext.assignmentRandomChars(randomChars[count], randomAscii);
+        if (newRandomChars != CharUtils.NUL) {
+          randomChars[count] = newRandomChars;
           count++;
         }
       }
@@ -81,66 +84,111 @@ public class IdGeneratorTest {
     String generate();
   }
 
-  public class RandomCharsContext {
-    public boolean getRandomChars(char[] randomChars, int count,int randomAscii) {
-      IRandomChars iRandomChars = new NumRandomChars();
-      return iRandomChars.getRandomChars(randomChars,count,randomAscii);
+  public class RandomCharsContext implements IRandomChars {
+
+    private IRandomChars nextRandomChars;
+
+    public RandomCharsContext() {
+      LowercaseLetterRandomChars lowercaseLetterRandomChars = new LowercaseLetterRandomChars();
+
+      UppercaseLetterRandomChars uppercaseLetterRandomChars = new UppercaseLetterRandomChars();
+      uppercaseLetterRandomChars.setNextRandomChars(lowercaseLetterRandomChars);
+
+      NumRandomChars numRandomChars = new NumRandomChars();
+      numRandomChars.setNextRandomChars(uppercaseLetterRandomChars);
+
+      nextRandomChars = numRandomChars;
+    }
+
+    @Override
+    public char assignmentRandomChars(char randomChar, int randomAscii) {
+      return nextRandomChars.assignmentRandomChars(randomChar,randomAscii);
     }
   }
 
-  public class NumRandomChars implements IRandomChars {
+
+
+  public class NumRandomChars extends AbstractRandomChars {
 
     private static final char DEFAULT_CHAR = '0';
 
-    private IRandomChars nextRandomChars = new UppercaseLetterRandomChars();
-
-    public boolean getRandomChars(char[] randomChars, int count,int randomAscii) {
+    @Override
+    protected char doAssignmentRandomChars(char randomChar, int randomAscii) {
       if (randomAscii >= 48 && randomAscii <= 57) {
-        randomChars[count] = (char)(DEFAULT_CHAR + (randomAscii - 48));
-        return true;
+        return (char)(DEFAULT_CHAR + (randomAscii - 48));
       }
-      return nextRandomChars.getRandomChars(randomChars,count,randomAscii);
+      return CharUtils.NUL;
     }
+
   }
 
-  public class UppercaseLetterRandomChars implements IRandomChars {
+
+
+  public class UppercaseLetterRandomChars extends AbstractRandomChars {
 
     private static final char DEFAULT_CHAR = 'A';
 
-    private IRandomChars nextRandomChars = new LowercaseLetterRandomChars();
-
-    public boolean getRandomChars(char[] randomChars, int count,int randomAscii) {
+    public char doAssignmentRandomChars(char randomChar, int randomAscii) {
       if (randomAscii >= 65 && randomAscii <= 90) {
-        randomChars[count] = (char)(DEFAULT_CHAR + (randomAscii - 65));
-        count++;
-        return true;
+        return (char)(DEFAULT_CHAR + (randomAscii - 65));
       }
-      return nextRandomChars.getRandomChars(randomChars,count,randomAscii);
+      return CharUtils.NUL;
     }
+
   }
 
-  public class LowercaseLetterRandomChars implements IRandomChars {
+
+
+  public class LowercaseLetterRandomChars extends AbstractRandomChars {
 
     private static final char DEFAULT_CHAR = 'a';
 
-    public boolean getRandomChars(char[] randomChars, int count,int randomAscii) {
+    @Override
+    protected char doAssignmentRandomChars(char randomChar, int randomAscii) {
       if (randomAscii >= 97 && randomAscii <= 122) {
-        randomChars[count] = (char)(DEFAULT_CHAR + (randomAscii - 97));
-        count++;
-        return true;
+        return (char)(DEFAULT_CHAR + (randomAscii - 97));
       }
-      return false;
+      return CharUtils.NUL;
     }
+  }
+
+  public abstract class AbstractRandomChars implements IRandomChars{
+    private IRandomChars nextRandomChars;
+
+    public void setNextRandomChars(IRandomChars nextRandomChars) {
+      this.nextRandomChars = nextRandomChars;
+    }
+
+    public char assignmentRandomChars(char randomChar, int randomAscii) {
+      char newRandomChar = doAssignmentRandomChars(randomChar, randomAscii);
+      if (newRandomChar!= CharUtils.NUL) {
+        return newRandomChar;
+      }
+
+      if (Objects.isNull(nextRandomChars)) {
+        return CharUtils.NUL;
+      }
+
+      return nextRandomChars.assignmentRandomChars(randomChar,randomAscii);
+
+    }
+
+    /**
+     * 组装随机字符
+     * @param randomChar
+     * @param randomAscii
+     * @return
+     */
+    protected abstract char doAssignmentRandomChars(char randomChar, int randomAscii);
   }
 
   public interface IRandomChars {
     /**
-     * 获取随机字符
-     * @param randomChars
-     * @param count
+     * 为随机字符串赋值
+     * @param randomChar
      * @param randomAscii
      * @return
      */
-    boolean getRandomChars(char[] randomChars, int count,int randomAscii);
+    char assignmentRandomChars(char randomChar, int randomAscii);
   }
 }
