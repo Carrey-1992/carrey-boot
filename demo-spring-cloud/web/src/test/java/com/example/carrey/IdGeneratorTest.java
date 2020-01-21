@@ -89,13 +89,11 @@ public class IdGeneratorTest {
     private IRandomChars nextRandomChars;
 
     public RandomCharsContext() {
-      LowercaseLetterRandomChars lowercaseLetterRandomChars = new LowercaseLetterRandomChars();
+      LowercaseLetterRandomChars lowercaseLetterRandomChars = new LowercaseLetterRandomChars(null);
 
-      UppercaseLetterRandomChars uppercaseLetterRandomChars = new UppercaseLetterRandomChars();
-      uppercaseLetterRandomChars.setNextRandomChars(lowercaseLetterRandomChars);
+      UppercaseLetterRandomChars uppercaseLetterRandomChars = new UppercaseLetterRandomChars(lowercaseLetterRandomChars);
 
-      NumRandomChars numRandomChars = new NumRandomChars();
-      numRandomChars.setNextRandomChars(uppercaseLetterRandomChars);
+      NumRandomChars numRandomChars = new NumRandomChars(uppercaseLetterRandomChars);
 
       nextRandomChars = numRandomChars;
     }
@@ -120,6 +118,9 @@ public class IdGeneratorTest {
       return CharUtils.NUL;
     }
 
+    public NumRandomChars(IRandomChars nextRandomChars) {
+      super(nextRandomChars);
+    }
   }
 
 
@@ -135,6 +136,9 @@ public class IdGeneratorTest {
       return CharUtils.NUL;
     }
 
+    public UppercaseLetterRandomChars(IRandomChars nextRandomChars) {
+      super(nextRandomChars);
+    }
   }
 
 
@@ -150,14 +154,14 @@ public class IdGeneratorTest {
       }
       return CharUtils.NUL;
     }
+
+    public LowercaseLetterRandomChars(IRandomChars nextRandomChars) {
+      super(nextRandomChars);
+    }
   }
 
   public abstract class AbstractRandomChars implements IRandomChars{
     private IRandomChars nextRandomChars;
-
-    public void setNextRandomChars(IRandomChars nextRandomChars) {
-      this.nextRandomChars = nextRandomChars;
-    }
 
     public char assignmentRandomChars(char randomChar, int randomAscii) {
       char newRandomChar = doAssignmentRandomChars(randomChar, randomAscii);
@@ -180,6 +184,10 @@ public class IdGeneratorTest {
      * @return
      */
     protected abstract char doAssignmentRandomChars(char randomChar, int randomAscii);
+
+    protected AbstractRandomChars(IRandomChars nextRandomChars) {
+      this.nextRandomChars = nextRandomChars;
+    }
   }
 
   public interface IRandomChars {
