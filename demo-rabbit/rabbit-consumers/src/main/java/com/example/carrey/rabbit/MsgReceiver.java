@@ -7,7 +7,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = RabbitConfig.QUEUE_A)
+@RabbitListener(queues = RabbitConfig.QUEUE_HELLO)
 @Slf4j
 public class MsgReceiver {
 
