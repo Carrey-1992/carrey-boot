@@ -1,13 +1,14 @@
 package com.example.carrey.rabbit;
 
 import com.example.carrey.config.RabbitConfig;
+import com.example.carrey.config.WorkRabbitConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = RabbitConfig.QUEUE_WORK,containerFactory = "rabbitListenerContainerFactory")
+@RabbitListener(queues = WorkRabbitConfig.QUEUE_WORK,containerFactory = "rabbitListenerContainerFactory")
 @Slf4j
 public class WorkReceiver2 {
     @RabbitHandler

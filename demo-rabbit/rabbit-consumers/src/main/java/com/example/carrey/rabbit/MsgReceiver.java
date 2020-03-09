@@ -1,5 +1,6 @@
 package com.example.carrey.rabbit;
 
+import com.example.carrey.config.HelloRabbitConfig;
 import com.example.carrey.config.RabbitConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -7,7 +8,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = RabbitConfig.QUEUE_HELLO)
+@RabbitListener(queues = HelloRabbitConfig.QUEUE_HELLO)
 @Slf4j
 public class MsgReceiver {
 
