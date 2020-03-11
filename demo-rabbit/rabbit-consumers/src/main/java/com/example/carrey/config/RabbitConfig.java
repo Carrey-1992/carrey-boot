@@ -1,17 +1,18 @@
 package com.example.carrey.config;
 
+import com.example.carrey.rabbit.DirectReceiver;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 
 /**
@@ -66,4 +67,30 @@ public class RabbitConfig {
     factory.setPrefetchCount(1);
     return factory;
   }
+
+
+  /**
+   * 消息接收手动确认机制
+   * @param directReceiver
+   * @param connectionFactory
+   * @return
+   */
+  @Bean
+  public SimpleMessageListenerContainer simpleMessageListenerContainer(@Autowired DirectReceiver directReceiver,
+                                                                       @Autowired ConnectionFactory connectionFactory,
+                                                                       @Autowired Queue directQueue) {
+    SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory);
+    //设置并发消费者的数量
+    container.setConcurrentConsumers(1);
+    //设置最大并发消费者的数量
+    container.setMaxConcurrentConsumers(1);
+    // RabbitMQ默认是自动确认，这里改为手动确认消息
+    container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+    container.setQueues(directQueue);
+    container.setMessageListener(directReceiver);
+//        container.addQueues(fanoutRabbitConfig.queueA());
+//        container.setMessageListener(fanoutReceiverA);
+    return container;
+  }
+
 }
