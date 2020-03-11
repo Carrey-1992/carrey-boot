@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class MsgProducer implements RabbitTemplate.ConfirmCallback {
+public class HelloProvider implements RabbitTemplate.ConfirmCallback {
 
 
     @Autowired

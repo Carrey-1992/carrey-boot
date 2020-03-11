@@ -1,19 +1,19 @@
 package com.example.carrey.rabbitMq;
 
-import org.springframework.amqp.core.FanoutExchange;
+import com.example.carrey.config.TopicConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FanoutSender {
-    @Autowired
-    private FanoutExchange fanoutExchange;
-
+public class TopicProvider2 {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void send(String message) {
-        rabbitTemplate.convertAndSend(fanoutExchange.getName(), "", message);
+    //发送信息
+    public void sendMessage(String content) {
+
+        rabbitTemplate.convertAndSend(TopicConfig.EXCHANGE,"topic.WOMAN_QUEUE",content);
     }
+
 }
