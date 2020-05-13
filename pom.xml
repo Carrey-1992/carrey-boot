@@ -12,6 +12,7 @@
         <module>demo-rabbit</module>
         <module>demo-easypoi</module>
         <module>demo-hutool</module>
+        <module>demo-netty</module>
     </modules>
 
     <parent>
