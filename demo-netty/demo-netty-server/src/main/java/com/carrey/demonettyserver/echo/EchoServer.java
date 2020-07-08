@@ -1,4 +1,4 @@
-package com.carrey.demonetty.echo.server;
+package com.carrey.demonettyserver.echo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

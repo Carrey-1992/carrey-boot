@@ -14,6 +14,7 @@
         <module>demo-hutool</module>
         <module>demo-netty</module>
         <module>demo-spring-data</module>
+        <module>demo-netty/demo-netty-client</module>
     </modules>
 
     <parent>

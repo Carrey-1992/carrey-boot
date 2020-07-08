@@ -11,15 +11,21 @@
     <packaging>jar</packaging>
 
     <artifactId>demo-netty</artifactId>
-    <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.49.Final</version>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.49.Final</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-    </dependencies>
+    <modules>
+        <module>demo-netty-server</module>
+        <module>demo-netty-client</module>
+    </modules>
 
 </project>
