@@ -15,7 +15,8 @@
 	<modules>
 		<module>mybatis-plus-quickstart</module>
         <module>mybatis-plus-generator</module>
-    </modules>
+		<module>mybatis-quickstart</module>
+	</modules>
 
 
 </project>

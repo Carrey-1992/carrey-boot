@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="myTestBean" class="com.example.carrey.domain.MyTestBean"/>
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="myTestBeanA" class="com.example.carrey.domain.bean.MyTestBeanA">
+        <property name="myTestBeanB" ref="myTestBeanB"></property>
+    </bean>
+
+    <bean id="myTestBeanB" class="com.example.carrey.domain.bean.MyTestBeanB">
+        <property name="myTestBeanA" ref="myTestBeanA"></property>
+    </bean>
+</beans>

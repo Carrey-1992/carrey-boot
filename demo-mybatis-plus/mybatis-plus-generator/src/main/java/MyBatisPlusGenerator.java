@@ -129,10 +129,10 @@ public class MyBatisPlusGenerator {
     private static PackageConfig setPackageConfig(AutoGenerator mpg) {
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName("purchase-generator");//父包模块名
-        pc.setParent("com.kunchi.product");//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+        pc.setParent("com.kunchi.basicdata");//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
         pc.setEntity("po");
         pc.setMapper("dao");
-        pc.setXml("xml");
+        pc.setXml("mapping");
         mpg.setPackageInfo(pc);
         return pc;
     }
