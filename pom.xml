@@ -15,7 +15,8 @@
         <module>demo-netty</module>
         <module>demo-spring-data</module>
         <module>demo-sensitive-word</module>
-        <module>demo-net</module>
+        <module>demo-spring-mvc-web</module>
+        <module>demo-zookeeper</module>
     </modules>
 
     <parent>

@@ -47,7 +47,7 @@ public class UserServiceImpl implements IUserService {
     @Transactional(rollbackFor = {Exception.class, Error.class},propagation = Propagation.REQUIRES_NEW)
     public void testSave1() {
         User user = new User();
-        user.setName("张杰");
+        user.setName("张杰1");
         user.setAge(27);
         user.setAddress("天津市蓟县杨津庄镇小扈驾庄村2区2排5号");
         jdbcTemplate.update("INSERT INTO `spring-jpa-demo`.user (name, age, address, created_time, updated_time) " +

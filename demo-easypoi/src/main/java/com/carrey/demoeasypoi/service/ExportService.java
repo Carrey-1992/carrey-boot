@@ -45,7 +45,7 @@ public class ExportService {
     Map<String, Object> studentExportMap = new HashMap(16) {
       {
         put("title", studentExportParam);
-        put("entity", Student.class);
+        put("com.carrey.demo.entity", Student.class);
         put("data", students);
       }
     };
@@ -56,7 +56,7 @@ public class ExportService {
     Map<String, Object> teacherExportMap = new HashMap(16) {
       {
         put("title", teacherExportParam);
-        put("entity", Teacher.class);
+        put("com.carrey.demo.entity", Teacher.class);
         put("data", teachers);
       }
     };

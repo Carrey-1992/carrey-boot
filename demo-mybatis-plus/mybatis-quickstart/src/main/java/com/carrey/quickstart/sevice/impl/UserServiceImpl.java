@@ -19,10 +19,13 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User getInfo(User user) {
         UserMapper mapper;
-        try (SqlSession sqlSession = SqlSessionFactoryHolder.getSqlSessionFactory().openSession()) {
+        SqlSession sqlSession = SqlSessionFactoryHolder.getSqlSessionFactory().openSession();
+        try {
             mapper = sqlSession.getMapper(UserMapper.class);
+            return mapper.getInfo(user);
+        } finally {
+            sqlSession.close();
         }
-        return mapper.getInfo(user);
     }
 
     @Override

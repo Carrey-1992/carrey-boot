@@ -17,7 +17,7 @@
 
     <typeHandlers>
         <!-- javaType="long" jdbcType="Date" -->
-        <typeHandler handler="org.mybatis.example.ExampleTypeHandler"/>
+        <typeHandler handler="com.carrey.quickstart.config.LongTimeHandler"/>
     </typeHandlers>
 
     <environments default="${default.environment}">

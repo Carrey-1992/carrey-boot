@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+  <display-name>Springmvc</display-name>
+  <!-- 使用ContextLoaderListener配置时，需要告诉她Spring配置文件的位置 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  <!-- 配置DispatchcerServlet -->
+  <servlet>
+    <servlet-name>Springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:Spring-servlet.xml</param-value>
+    </init-param>
+    <!-- load-on-startup：表示启动容器时初始化该Servlet； -->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Springmvc</servlet-name>
+    <!-- url-pattern：表示哪些请求交给Spring Web MVC处理， “/” 是用来定义默认servlet映射的。 -->
+    <!-- 也可以如“*.html”表示拦截所有以html为扩展名的请求。 -->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <!-- 配置上下文载入器 -->
+  <!-- 上下文载入器载入DispatcherServlet载入的配置文件之外的其他上下文配置文件 -->
+  <!-- 最常用的上下文载入器是一个Servlet监听器，其名称为ContextLoaderListener-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!--post请求中文乱码问题解决方案-->
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+
+</web-app>

@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date 2020/11/20 4:03 下午
  */
 @Configuration
-@EnableAspectJAutoProxy(exposeProxy = true)
+@EnableAspectJAutoProxy(exposeProxy = true,proxyTargetClass = true)
 @EnableTransactionManagement
 @ComponentScan("com.example.carrey.transaction")
 public class TransactionConfig {
