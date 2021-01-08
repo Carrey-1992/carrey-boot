@@ -26,6 +26,8 @@ public class UserController {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    private IUserService myUserService;
 
     @RequestMapping(value = "/user",method = RequestMethod.POST)
     private User getUser(@RequestBody User user) {
@@ -34,5 +36,11 @@ public class UserController {
                 .map(service -> (IUserService)service)
                 .map(service -> service.getUser(user))
                 .orElse(new User());
+    }
+
+
+    @RequestMapping(value = "/dynamic",method = RequestMethod.POST)
+    private void dynamic(@RequestBody User user) {
+        myUserService.dynamic();
     }
 }

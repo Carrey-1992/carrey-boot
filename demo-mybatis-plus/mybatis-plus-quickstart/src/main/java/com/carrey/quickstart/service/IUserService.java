@@ -9,4 +9,9 @@ public interface IUserService {
      * @return
      */
     User getUser(User user);
+
+    /**
+     * 多数据源测试
+     */
+    void dynamic();
 }

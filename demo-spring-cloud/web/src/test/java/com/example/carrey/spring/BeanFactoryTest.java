@@ -3,10 +3,13 @@ package com.example.carrey.spring;
 import com.example.carrey.aop.IAopDemoTest;
 import com.example.carrey.config.AopConfig;
 import com.example.carrey.config.TransactionConfig;
+import com.example.carrey.config.decorate.DecorateConfig;
+import com.example.carrey.decorate.FilterProccess;
 import com.example.carrey.domain.MainConfig;
 import com.example.carrey.domain.MyTestBean;
 import com.example.carrey.transaction.IUserService;
 import com.example.carrey.transaction.User;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -53,6 +56,13 @@ public class BeanFactoryTest {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AopConfig.class);
         IAopDemoTest bean = applicationContext.getBean(IAopDemoTest.class);
         Assert.assertEquals("demoParam",bean.testMethod("demoParam"));
+    }
+
+    @Test
+    public void decorateTest() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(DecorateConfig.class);
+        FilterProccess filterProccess = (FilterProccess)applicationContext.getBean("decorateContext");
+        filterProccess.filter(Lists.newArrayList("1","2","3"));
     }
 
     @Test

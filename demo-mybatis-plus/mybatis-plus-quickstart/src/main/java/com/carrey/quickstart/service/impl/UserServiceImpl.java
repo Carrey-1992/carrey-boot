@@ -16,4 +16,9 @@ public class UserServiceImpl implements IUserService {
     public User getUser(User user) {
         return user;
     }
+
+    @Override
+    public void dynamic() {
+
+    }
 }

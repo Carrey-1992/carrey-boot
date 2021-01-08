@@ -9,11 +9,19 @@ spring:
 spring:
   profiles: test
   datasource:
-    driver-class-name: org.h2.Driver
-    schema: classpath:db/schema-h2.sql
-    data: classpath:db/data-h2.sql
-    url: jdbc:h2:mem:test
-    username: root
-    password: test
+    dynamic:
+      primary: spring-dynamic-data-source-demo #设置默认的数据源或者数据源组,默认值即为master
+      strict: true #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        spring-dynamic-data-source-demo:
+          url: jdbc:mysql://123.57.34.196:3306/spring-dynamic-data-source-demo
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+        spring-jpa-demo:
+          url: jdbc:mysql://123.57.34.196:3306/spring-jpa-demo
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver
 
 
