@@ -15,6 +15,7 @@
     <modules>
         <module>rabbit-consumers</module>
         <module>rabbit-producer</module>
+        <module>rabbit-quickstart</module>
     </modules>
 
 </project>

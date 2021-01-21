@@ -17,6 +17,8 @@
         <module>demo-sensitive-word</module>
         <module>demo-spring-mvc-web</module>
         <module>demo-zookeeper</module>
+        <module>demo-redis</module>
+        <module>算法一期</module>
     </modules>
 
     <parent>
