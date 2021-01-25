@@ -139,7 +139,7 @@ public class MyBatisPlusGenerator {
 
     private static void setDataSourceConfig(AutoGenerator mpg) {
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://offline-tech.ikunchi.com:30037/obc_data_center?characterEncoding=UTF-8&useSSL=false");
+        dsc.setUrl("jdbc:mysql://offline-tech.ikunchi.com:30037/obc_product?characterEncoding=UTF-8&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");

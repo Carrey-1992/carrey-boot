@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  rabbitmq:
+    addresses: 123.57.34.196:5673,123.57.34.196:5674,123.57.34.196:5675
+    virtual-host: carrey
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 5
+        max-concurrency: 10
+        prefetch:

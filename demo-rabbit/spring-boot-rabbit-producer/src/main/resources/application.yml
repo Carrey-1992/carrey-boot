@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  rabbitmq:
+    addresses: 123.57.34.196:5673,123.57.34.196:5674,123.57.34.196:5675
+    virtual-host: carrey
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+    connection-timeout: 10000
+
