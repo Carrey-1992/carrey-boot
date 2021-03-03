@@ -8,15 +8,15 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="myTestBean" class="com.example.carrey.domain.MyTestBean"/>
+    <bean id="myTestBean" class="com.carrey.carrey.domain.MyTestBean"/>
 
     <context:annotation-config></context:annotation-config>
 
-    <bean id="myTestBeanA" class="com.example.carrey.domain.bean.MyTestBeanA">
+    <bean id="myTestBeanA" class="com.carrey.carrey.domain.bean.MyTestBeanA">
         <property name="myTestBeanB" ref="myTestBeanB"></property>
     </bean>
 
-    <bean id="myTestBeanB" class="com.example.carrey.domain.bean.MyTestBeanB">
+    <bean id="myTestBeanB" class="com.carrey.carrey.domain.bean.MyTestBeanB">
         <property name="myTestBeanA" ref="myTestBeanA"></property>
     </bean>
 </beans>

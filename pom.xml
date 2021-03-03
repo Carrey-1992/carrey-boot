@@ -18,9 +18,10 @@
         <module>demo-spring-mvc-web</module>
         <module>demo-zookeeper</module>
         <module>demo-redis</module>
-        <module>算法练习</module>
         <module>demo-algorithm</module>
-        <module>demo-algorithm/一期</module>
+        <module>demo-rocketmq</module>
+        <module>demo-kafka</module>
+        <module>demo-sharing-sphere</module>
     </modules>
 
     <parent>

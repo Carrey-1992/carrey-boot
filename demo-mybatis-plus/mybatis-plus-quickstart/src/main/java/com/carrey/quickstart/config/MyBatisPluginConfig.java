@@ -1,7 +1,6 @@
 package com.carrey.quickstart.config;
 
-import com.example.carrey.mybatis.MyExecutorPlugin;
-import org.mybatis.spring.annotation.MapperScan;
+import com.carrey.carrey.mybatis.MyExecutorPlugin;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
