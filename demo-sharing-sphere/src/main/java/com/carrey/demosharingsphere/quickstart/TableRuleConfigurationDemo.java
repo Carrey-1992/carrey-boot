@@ -3,14 +3,12 @@ package com.carrey.demosharingsphere.quickstart;
 import io.shardingsphere.api.config.rule.ShardingRuleConfiguration;
 import io.shardingsphere.api.config.rule.TableRuleConfiguration;
 import io.shardingsphere.api.config.strategy.InlineShardingStrategyConfiguration;
+import io.shardingsphere.core.keygen.DefaultKeyGenerator;
 import io.shardingsphere.shardingjdbc.api.ShardingDataSourceFactory;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -51,15 +49,41 @@ public class TableRuleConfigurationDemo {
         dataSource3.setPassword("123456");
         dataSourceMap.put("ds2", dataSource3);
 
-        // 配置Order表规则
-        TableRuleConfiguration orderTableRuleConfig = new TableRuleConfiguration();
-        orderTableRuleConfig.setLogicTable("t_order");
-        orderTableRuleConfig.setActualDataNodes("ds${0..2}.t_order${0..2}");
+        // 配置分片规则
+        ShardingRuleConfiguration shardingRuleConfig = new ShardingRuleConfiguration();
+        // 配置分库
+        shardingRuleConfig.setDefaultDatabaseShardingStrategyConfig(
+                new InlineShardingStrategyConfiguration("user_id", "ds${user_id % 3}"));
+        shardingRuleConfig.getBindingTableGroups().add("t_order,t_order_item");
+        shardingRuleConfig.getTableRuleConfigs().add(getOrderTableRuleConfiguration());
+        shardingRuleConfig.getTableRuleConfigs().add(getOrderItemTableRuleConfiguration());
 
-        // 分表策略
-        orderTableRuleConfig.setTableShardingStrategyConfig(
-                new InlineShardingStrategyConfiguration("order_id", "t_order${order_id % 3}"));
+        // 配置分表策略 对表分片是采用我们order_id
+//        shardingRuleConfig.setDefaultTableShardingStrategyConfig(
+//                new StandardShardingStrategyConfiguration("order_id",
+//                        new PreciseShardingAlgorithm<Long>() {
+//                            @Override
+//                            public String doSharding(Collection<String> collection, final PreciseShardingValue<Long> preciseShardingValue) {
+//                                for (String each : collection) {
+//                                    if (each.endsWith(preciseShardingValue.getValue() % 3 + "")) {//这句话会产生什么？只会产生偶数的订单
+//                                        return each;
+//                                    }
+//                                }
+//                                throw new UnsupportedOperationException();
+//                            }
+//                        }));
 
+        // 获取数据源对象
+        Properties properties = new Properties();
+        properties.setProperty("sql.show", "true");
+
+        //获取数据源对象
+        DataSource dataSource = ShardingDataSourceFactory.createDataSource(dataSourceMap, shardingRuleConfig, new ConcurrentHashMap<>(), properties);
+//        selectRange(dataSource);
+        insertData(dataSource);
+    }
+
+    private static TableRuleConfiguration getOrderItemTableRuleConfiguration() {
         // 配置order_item表规则
         // 配置Order表规则
         TableRuleConfiguration orderItemTableRuleConfig = new TableRuleConfiguration();
@@ -69,18 +93,58 @@ public class TableRuleConfigurationDemo {
         // 分表策略
         orderItemTableRuleConfig.setTableShardingStrategyConfig(
                 new InlineShardingStrategyConfiguration("order_id", "t_order_item${order_id % 3}"));
+        return orderItemTableRuleConfig;
+    }
 
-        // 配置分片规则
-        ShardingRuleConfiguration shardingRuleConfig = new ShardingRuleConfiguration();
-        // 配置分库
-        shardingRuleConfig.setDefaultDatabaseShardingStrategyConfig(
-                new InlineShardingStrategyConfiguration("user_id", "ds${user_id % 3}"));
-        shardingRuleConfig.getBindingTableGroups().add("t_order,t_order_item");
-        shardingRuleConfig.getTableRuleConfigs().add(orderTableRuleConfig);
-        shardingRuleConfig.getTableRuleConfigs().add(orderItemTableRuleConfig);
+    private static TableRuleConfiguration getOrderTableRuleConfiguration() {
+        // 配置Order表规则
+        TableRuleConfiguration orderTableRuleConfig = new TableRuleConfiguration();
+        orderTableRuleConfig.setLogicTable("t_order");
+        orderTableRuleConfig.setActualDataNodes("ds${0..2}.t_order${0..2}");
+        // 配置雪花算法
+        orderTableRuleConfig.setKeyGenerator(new DefaultKeyGenerator());
+        orderTableRuleConfig.setKeyGeneratorColumnName("order_id");
 
-        //获取数据源对象
-        DataSource dataSource = ShardingDataSourceFactory.createDataSource(dataSourceMap, shardingRuleConfig, new ConcurrentHashMap<>(), new Properties());
+        // 分表策略
+        orderTableRuleConfig.setTableShardingStrategyConfig(
+                new InlineShardingStrategyConfiguration("order_id", "t_order${order_id % 3}"));
+        return orderTableRuleConfig;
+    }
+
+    public static void insertData(DataSource dataSource) throws SQLException {
+        for (int i = 1; i < 10; i++) {
+            long orderId = executeAndGetGeneratedKey(dataSource, "INSERT INTO t_order (user_id) VALUES (10)");
+            execute(dataSource, String.format("INSERT INTO t_order_item (order_id, user_id) VALUES (%d, 10)", orderId));
+            orderId = executeAndGetGeneratedKey(dataSource, "INSERT INTO t_order (user_id) VALUES (11)");
+            execute(dataSource, String.format("INSERT INTO t_order_item (order_id, user_id) VALUES (%d, 11)", orderId));
+            orderId = executeAndGetGeneratedKey(dataSource, "INSERT INTO t_order (user_id) VALUES (12)");
+            execute(dataSource, String.format("INSERT INTO t_order_item (order_id, user_id) VALUES (%d, 12)", orderId));
+        }
+    }
+
+    private static void execute(final DataSource dataSource, final String sql) throws SQLException {
+        try (
+                Connection conn = dataSource.getConnection();
+                Statement statement = conn.createStatement()) {
+            statement.execute(sql);
+        }
+    }
+
+    private static long executeAndGetGeneratedKey(final DataSource dataSource, final String sql) throws SQLException {
+        long result = -1;
+        try (
+                Connection conn = dataSource.getConnection();
+                Statement statement = conn.createStatement()) {
+            statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet resultSet = statement.getGeneratedKeys();
+            if (resultSet.next()) {
+                result = resultSet.getLong(1);
+            }
+        }
+        return result;
+    }
+
+    private static void selectRange(DataSource dataSource) throws SQLException {
         String sql = "SELECT o.*,i.* FROM t_order o JOIN t_order_item i ON o.order_id=i.order_id where o.user_id =? AND o.order_id =?";
         try (
                 Connection conn = dataSource.getConnection();
