@@ -21,7 +21,7 @@
         <module>demo-algorithm</module>
         <module>demo-rocketmq</module>
         <module>demo-kafka</module>
-        <module>demo-sharing-sphere</module>
+        <module>demo-shardingsphere</module>
     </modules>
 
     <parent>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="mybatis-generator/generator.properties"/>
+    <!--    连接数据库jar包的路径-->
+    <classPathEntry location="/Users/wangkangwei/Software/apache-maven-3.6.3/anialy-repo/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar"/>
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="否"/>
+        </commentGenerator>
+
+        <!--数据库连接参数 -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://123.57.34.196:3306/ds0?serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+                userId="root"
+                password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 实体类的包名和存放路径 -->
+        <javaModelGenerator targetPackage="com.carrey.demoshardingsphere.po" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件*.xml的位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.carrey.demoshardingsphere.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- tableName：数据库中的表名或视图名；domainObjectName：生成的实体类的类名-->
+        <table tableName="log_esb_request_resume" domainObjectName="logEsbRequestResume"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true"/>
+        <!--
+                <table tableName="xxx" domainObjectName="xxx"
+                       enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false"/>
+                ...
+                <table tableName="xxx" domainObjectName="xxx"
+                       enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false"/>
+        -->
+    </context>
+</generatorConfiguration>

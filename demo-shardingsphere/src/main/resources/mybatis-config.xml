@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="application.yml">
+<!--        <property name="jdbc.driver" value=""/>-->
+    </properties>
+
+    <settings>
+        <!-- 开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 开启驼峰命名适配-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+
+<!--    <typeHandlers>-->
+<!--        &lt;!&ndash; javaType="long" jdbcType="Date" &ndash;&gt;-->
+<!--        <typeHandler handler="com.carrey.quickstart.config.LongTimeHandler"/>-->
+<!--    </typeHandlers>-->
+
+<!--    <environments default="${mybatis.default.environment}">-->
+<!--        <environment id="local">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${mybatis.jdbc.driverClass}"/>-->
+<!--                <property name="url" value="${mybatis.jdbc.jdbcUrl}"/>-->
+<!--                <property name="username" value="${mybatis.jdbc.user}"/>-->
+<!--                <property name="password" value="${mybatis.jdbc.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+
+</configuration>

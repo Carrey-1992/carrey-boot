@@ -1,4 +1,5 @@
-package com.carrey.demosharingsphere.quickstart;
+package com.carrey.demoshardingsphere.quickstart;
+
 
 import io.shardingsphere.shardingjdbc.api.yaml.YamlShardingDataSourceFactory;
 

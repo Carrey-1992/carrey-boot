@@ -1,4 +1,4 @@
-package com.carrey.demosharingsphere.entity;
+package com.carrey.demoshardingsphere.po;
 
 import lombok.Data;
 
