@@ -29,6 +29,7 @@
     <result column="is_retrying" jdbcType="TINYINT" property="isRetrying" />
     <result column="is_retry_success" jdbcType="TINYINT" property="isRetrySuccess" />
     <result column="retry_num" jdbcType="INTEGER" property="retryNum" />
+    <result column="enable_state" jdbcType="INTEGER" property="enableState" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
@@ -115,7 +116,8 @@
     id, user_id, service, modular, modular_key, operate_type, operate_desc, request_id, 
     request_type, request_param, request_url, msg_id, is_req_success, is_need_callback_ack, 
     is_callback_ack, is_callback_ack_success, callback_ack_date, callback_ack_url, is_need_auto_retry, 
-    retry_type, is_retrying, is_retry_success, retry_num, create_date, update_date
+    retry_type, is_retrying, is_retry_success, retry_num, enable_state, create_date, 
+    update_date
   </sql>
   <sql id="Blob_Column_List">
     <!--
@@ -207,8 +209,8 @@
       is_callback_ack_success, callback_ack_date, 
       callback_ack_url, is_need_auto_retry, retry_type, 
       is_retrying, is_retry_success, retry_num, 
-      create_date, update_date, request_body, 
-      response_result, callback_ack_result
+      enable_state, create_date, update_date, 
+      request_body, response_result, callback_ack_result
       )
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, #{service,jdbcType=VARCHAR}, 
       #{modular,jdbcType=VARCHAR}, #{modularKey,jdbcType=VARCHAR}, #{operateType,jdbcType=INTEGER}, 
@@ -218,8 +220,8 @@
       #{isCallbackAckSuccess,jdbcType=TINYINT}, #{callbackAckDate,jdbcType=TIMESTAMP}, 
       #{callbackAckUrl,jdbcType=VARCHAR}, #{isNeedAutoRetry,jdbcType=TINYINT}, #{retryType,jdbcType=TINYINT}, 
       #{isRetrying,jdbcType=TINYINT}, #{isRetrySuccess,jdbcType=TINYINT}, #{retryNum,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{requestBody,jdbcType=LONGVARCHAR}, 
-      #{responseResult,jdbcType=LONGVARCHAR}, #{callbackAckResult,jdbcType=LONGVARCHAR}
+      #{enableState,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{requestBody,jdbcType=LONGVARCHAR}, #{responseResult,jdbcType=LONGVARCHAR}, #{callbackAckResult,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.carrey.demoshardingsphere.po.LogEsbRequestResumeWithBLOBs">
@@ -297,6 +299,9 @@
       </if>
       <if test="retryNum != null">
         retry_num,
+      </if>
+      <if test="enableState != null">
+        enable_state,
       </if>
       <if test="createDate != null">
         create_date,
@@ -383,6 +388,9 @@
       </if>
       <if test="retryNum != null">
         #{retryNum,jdbcType=INTEGER},
+      </if>
+      <if test="enableState != null">
+        #{enableState,jdbcType=INTEGER},
       </if>
       <if test="createDate != null">
         #{createDate,jdbcType=TIMESTAMP},
@@ -487,6 +495,9 @@
       <if test="record.retryNum != null">
         retry_num = #{record.retryNum,jdbcType=INTEGER},
       </if>
+      <if test="record.enableState != null">
+        enable_state = #{record.enableState,jdbcType=INTEGER},
+      </if>
       <if test="record.createDate != null">
         create_date = #{record.createDate,jdbcType=TIMESTAMP},
       </if>
@@ -536,6 +547,7 @@
       is_retrying = #{record.isRetrying,jdbcType=TINYINT},
       is_retry_success = #{record.isRetrySuccess,jdbcType=TINYINT},
       retry_num = #{record.retryNum,jdbcType=INTEGER},
+      enable_state = #{record.enableState,jdbcType=INTEGER},
       create_date = #{record.createDate,jdbcType=TIMESTAMP},
       update_date = #{record.updateDate,jdbcType=TIMESTAMP},
       request_body = #{record.requestBody,jdbcType=LONGVARCHAR},
@@ -574,6 +586,7 @@
       is_retrying = #{record.isRetrying,jdbcType=TINYINT},
       is_retry_success = #{record.isRetrySuccess,jdbcType=TINYINT},
       retry_num = #{record.retryNum,jdbcType=INTEGER},
+      enable_state = #{record.enableState,jdbcType=INTEGER},
       create_date = #{record.createDate,jdbcType=TIMESTAMP},
       update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -653,6 +666,9 @@
       <if test="retryNum != null">
         retry_num = #{retryNum,jdbcType=INTEGER},
       </if>
+      <if test="enableState != null">
+        enable_state = #{enableState,jdbcType=INTEGER},
+      </if>
       <if test="createDate != null">
         create_date = #{createDate,jdbcType=TIMESTAMP},
       </if>
@@ -699,6 +715,7 @@
       is_retrying = #{isRetrying,jdbcType=TINYINT},
       is_retry_success = #{isRetrySuccess,jdbcType=TINYINT},
       retry_num = #{retryNum,jdbcType=INTEGER},
+      enable_state = #{enableState,jdbcType=INTEGER},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP},
       request_body = #{requestBody,jdbcType=LONGVARCHAR},
@@ -734,6 +751,7 @@
       is_retrying = #{isRetrying,jdbcType=TINYINT},
       is_retry_success = #{isRetrySuccess,jdbcType=TINYINT},
       retry_num = #{retryNum,jdbcType=INTEGER},
+      enable_state = #{enableState,jdbcType=INTEGER},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

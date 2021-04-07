@@ -14,6 +14,7 @@
 
     <modules>
         <module>demo-eureka</module>
+        <module>demo-consul</module>
         <module>demo-config</module>
         <module>web</module>
         <module>demo-gateway</module>

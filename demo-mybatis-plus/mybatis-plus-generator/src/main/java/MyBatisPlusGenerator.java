@@ -129,7 +129,7 @@ public class MyBatisPlusGenerator {
     private static PackageConfig setPackageConfig(AutoGenerator mpg) {
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName("purchase-generator");//父包模块名
-        pc.setParent("com.carrey.demoshardingsphere");//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+        pc.setParent("com.kunchi.basicdata");//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
         pc.setEntity("po");
         pc.setMapper("dao");
         pc.setXml("mapping");
@@ -139,11 +139,11 @@ public class MyBatisPlusGenerator {
 
     private static void setDataSourceConfig(AutoGenerator mpg) {
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://123.57.34.196:3306/ds0?characterEncoding=UTF-8&useSSL=false");
+        dsc.setUrl("jdbc:mysql://offline-tech.ikunchi.com:30037/obc_data_center?characterEncoding=UTF-8&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setPassword("eGaTB0mSfkL2AIRl");
         mpg.setDataSource(dsc);
     }
 

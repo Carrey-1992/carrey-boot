@@ -42,12 +42,22 @@
         </javaClientGenerator>
 
         <!-- tableName：数据库中的表名或视图名；domainObjectName：生成的实体类的类名-->
-        <table tableName="log_esb_request_resume" domainObjectName="logEsbRequestResume"
+        <table tableName="log_esb_request_resume" domainObjectName="LogEsbRequestResume"
                enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true"
                enableSelectByExample="true"
-               selectByExampleQueryId="true"/>
+               selectByExampleQueryId="true">
+            <columnOverride column="is_req_success" property="isReqSuccess" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="is_need_callback_ack" property="isNeedCallbackAck" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="is_callback_ack" property="isCallbackAck" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="is_callback_ack_success" property="isCallbackAckSuccess" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="is_need_auto_retry" property="isNeedAutoRetry" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="is_retrying" property="isRetrying" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="is_retry_success" property="isRetrySuccess" javaType="java.lang.Boolean" jdbcType="tinyint" />
+            <columnOverride column="request_type" property="requestType" javaType="java.lang.Integer" jdbcType="tinyint" />
+            <columnOverride column="retry_type" property="retryType" javaType="java.lang.Integer" jdbcType="tinyint" />
+        </table>
         <!--
                 <table tableName="xxx" domainObjectName="xxx"
                        enableCountByExample="false"

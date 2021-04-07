@@ -735,52 +735,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeEqualTo(Byte value) {
+        public Criteria andRequestTypeEqualTo(Integer value) {
             addCriterion("request_type =", value, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeNotEqualTo(Byte value) {
+        public Criteria andRequestTypeNotEqualTo(Integer value) {
             addCriterion("request_type <>", value, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeGreaterThan(Byte value) {
+        public Criteria andRequestTypeGreaterThan(Integer value) {
             addCriterion("request_type >", value, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeGreaterThanOrEqualTo(Byte value) {
+        public Criteria andRequestTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("request_type >=", value, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeLessThan(Byte value) {
+        public Criteria andRequestTypeLessThan(Integer value) {
             addCriterion("request_type <", value, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeLessThanOrEqualTo(Byte value) {
+        public Criteria andRequestTypeLessThanOrEqualTo(Integer value) {
             addCriterion("request_type <=", value, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeIn(List<Byte> values) {
+        public Criteria andRequestTypeIn(List<Integer> values) {
             addCriterion("request_type in", values, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeNotIn(List<Byte> values) {
+        public Criteria andRequestTypeNotIn(List<Integer> values) {
             addCriterion("request_type not in", values, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeBetween(Byte value1, Byte value2) {
+        public Criteria andRequestTypeBetween(Integer value1, Integer value2) {
             addCriterion("request_type between", value1, value2, "requestType");
             return (Criteria) this;
         }
 
-        public Criteria andRequestTypeNotBetween(Byte value1, Byte value2) {
+        public Criteria andRequestTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("request_type not between", value1, value2, "requestType");
             return (Criteria) this;
         }
@@ -1005,52 +1005,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessEqualTo(Byte value) {
+        public Criteria andIsReqSuccessEqualTo(Boolean value) {
             addCriterion("is_req_success =", value, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessNotEqualTo(Byte value) {
+        public Criteria andIsReqSuccessNotEqualTo(Boolean value) {
             addCriterion("is_req_success <>", value, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessGreaterThan(Byte value) {
+        public Criteria andIsReqSuccessGreaterThan(Boolean value) {
             addCriterion("is_req_success >", value, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsReqSuccessGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_req_success >=", value, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessLessThan(Byte value) {
+        public Criteria andIsReqSuccessLessThan(Boolean value) {
             addCriterion("is_req_success <", value, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessLessThanOrEqualTo(Byte value) {
+        public Criteria andIsReqSuccessLessThanOrEqualTo(Boolean value) {
             addCriterion("is_req_success <=", value, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessIn(List<Byte> values) {
+        public Criteria andIsReqSuccessIn(List<Boolean> values) {
             addCriterion("is_req_success in", values, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessNotIn(List<Byte> values) {
+        public Criteria andIsReqSuccessNotIn(List<Boolean> values) {
             addCriterion("is_req_success not in", values, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessBetween(Byte value1, Byte value2) {
+        public Criteria andIsReqSuccessBetween(Boolean value1, Boolean value2) {
             addCriterion("is_req_success between", value1, value2, "isReqSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsReqSuccessNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsReqSuccessNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_req_success not between", value1, value2, "isReqSuccess");
             return (Criteria) this;
         }
@@ -1065,52 +1065,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckEqualTo(Byte value) {
+        public Criteria andIsNeedCallbackAckEqualTo(Boolean value) {
             addCriterion("is_need_callback_ack =", value, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckNotEqualTo(Byte value) {
+        public Criteria andIsNeedCallbackAckNotEqualTo(Boolean value) {
             addCriterion("is_need_callback_ack <>", value, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckGreaterThan(Byte value) {
+        public Criteria andIsNeedCallbackAckGreaterThan(Boolean value) {
             addCriterion("is_need_callback_ack >", value, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsNeedCallbackAckGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_need_callback_ack >=", value, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckLessThan(Byte value) {
+        public Criteria andIsNeedCallbackAckLessThan(Boolean value) {
             addCriterion("is_need_callback_ack <", value, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckLessThanOrEqualTo(Byte value) {
+        public Criteria andIsNeedCallbackAckLessThanOrEqualTo(Boolean value) {
             addCriterion("is_need_callback_ack <=", value, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckIn(List<Byte> values) {
+        public Criteria andIsNeedCallbackAckIn(List<Boolean> values) {
             addCriterion("is_need_callback_ack in", values, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckNotIn(List<Byte> values) {
+        public Criteria andIsNeedCallbackAckNotIn(List<Boolean> values) {
             addCriterion("is_need_callback_ack not in", values, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckBetween(Byte value1, Byte value2) {
+        public Criteria andIsNeedCallbackAckBetween(Boolean value1, Boolean value2) {
             addCriterion("is_need_callback_ack between", value1, value2, "isNeedCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedCallbackAckNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsNeedCallbackAckNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_need_callback_ack not between", value1, value2, "isNeedCallbackAck");
             return (Criteria) this;
         }
@@ -1125,52 +1125,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckEqualTo(Byte value) {
+        public Criteria andIsCallbackAckEqualTo(Boolean value) {
             addCriterion("is_callback_ack =", value, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckNotEqualTo(Byte value) {
+        public Criteria andIsCallbackAckNotEqualTo(Boolean value) {
             addCriterion("is_callback_ack <>", value, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckGreaterThan(Byte value) {
+        public Criteria andIsCallbackAckGreaterThan(Boolean value) {
             addCriterion("is_callback_ack >", value, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsCallbackAckGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_callback_ack >=", value, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckLessThan(Byte value) {
+        public Criteria andIsCallbackAckLessThan(Boolean value) {
             addCriterion("is_callback_ack <", value, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckLessThanOrEqualTo(Byte value) {
+        public Criteria andIsCallbackAckLessThanOrEqualTo(Boolean value) {
             addCriterion("is_callback_ack <=", value, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckIn(List<Byte> values) {
+        public Criteria andIsCallbackAckIn(List<Boolean> values) {
             addCriterion("is_callback_ack in", values, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckNotIn(List<Byte> values) {
+        public Criteria andIsCallbackAckNotIn(List<Boolean> values) {
             addCriterion("is_callback_ack not in", values, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckBetween(Byte value1, Byte value2) {
+        public Criteria andIsCallbackAckBetween(Boolean value1, Boolean value2) {
             addCriterion("is_callback_ack between", value1, value2, "isCallbackAck");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsCallbackAckNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_callback_ack not between", value1, value2, "isCallbackAck");
             return (Criteria) this;
         }
@@ -1185,52 +1185,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessEqualTo(Byte value) {
+        public Criteria andIsCallbackAckSuccessEqualTo(Boolean value) {
             addCriterion("is_callback_ack_success =", value, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessNotEqualTo(Byte value) {
+        public Criteria andIsCallbackAckSuccessNotEqualTo(Boolean value) {
             addCriterion("is_callback_ack_success <>", value, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessGreaterThan(Byte value) {
+        public Criteria andIsCallbackAckSuccessGreaterThan(Boolean value) {
             addCriterion("is_callback_ack_success >", value, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsCallbackAckSuccessGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_callback_ack_success >=", value, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessLessThan(Byte value) {
+        public Criteria andIsCallbackAckSuccessLessThan(Boolean value) {
             addCriterion("is_callback_ack_success <", value, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessLessThanOrEqualTo(Byte value) {
+        public Criteria andIsCallbackAckSuccessLessThanOrEqualTo(Boolean value) {
             addCriterion("is_callback_ack_success <=", value, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessIn(List<Byte> values) {
+        public Criteria andIsCallbackAckSuccessIn(List<Boolean> values) {
             addCriterion("is_callback_ack_success in", values, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessNotIn(List<Byte> values) {
+        public Criteria andIsCallbackAckSuccessNotIn(List<Boolean> values) {
             addCriterion("is_callback_ack_success not in", values, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessBetween(Byte value1, Byte value2) {
+        public Criteria andIsCallbackAckSuccessBetween(Boolean value1, Boolean value2) {
             addCriterion("is_callback_ack_success between", value1, value2, "isCallbackAckSuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsCallbackAckSuccessNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsCallbackAckSuccessNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_callback_ack_success not between", value1, value2, "isCallbackAckSuccess");
             return (Criteria) this;
         }
@@ -1375,52 +1375,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryEqualTo(Byte value) {
+        public Criteria andIsNeedAutoRetryEqualTo(Boolean value) {
             addCriterion("is_need_auto_retry =", value, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryNotEqualTo(Byte value) {
+        public Criteria andIsNeedAutoRetryNotEqualTo(Boolean value) {
             addCriterion("is_need_auto_retry <>", value, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryGreaterThan(Byte value) {
+        public Criteria andIsNeedAutoRetryGreaterThan(Boolean value) {
             addCriterion("is_need_auto_retry >", value, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsNeedAutoRetryGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_need_auto_retry >=", value, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryLessThan(Byte value) {
+        public Criteria andIsNeedAutoRetryLessThan(Boolean value) {
             addCriterion("is_need_auto_retry <", value, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryLessThanOrEqualTo(Byte value) {
+        public Criteria andIsNeedAutoRetryLessThanOrEqualTo(Boolean value) {
             addCriterion("is_need_auto_retry <=", value, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryIn(List<Byte> values) {
+        public Criteria andIsNeedAutoRetryIn(List<Boolean> values) {
             addCriterion("is_need_auto_retry in", values, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryNotIn(List<Byte> values) {
+        public Criteria andIsNeedAutoRetryNotIn(List<Boolean> values) {
             addCriterion("is_need_auto_retry not in", values, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryBetween(Byte value1, Byte value2) {
+        public Criteria andIsNeedAutoRetryBetween(Boolean value1, Boolean value2) {
             addCriterion("is_need_auto_retry between", value1, value2, "isNeedAutoRetry");
             return (Criteria) this;
         }
 
-        public Criteria andIsNeedAutoRetryNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsNeedAutoRetryNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_need_auto_retry not between", value1, value2, "isNeedAutoRetry");
             return (Criteria) this;
         }
@@ -1435,52 +1435,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeEqualTo(Byte value) {
+        public Criteria andRetryTypeEqualTo(Integer value) {
             addCriterion("retry_type =", value, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeNotEqualTo(Byte value) {
+        public Criteria andRetryTypeNotEqualTo(Integer value) {
             addCriterion("retry_type <>", value, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeGreaterThan(Byte value) {
+        public Criteria andRetryTypeGreaterThan(Integer value) {
             addCriterion("retry_type >", value, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeGreaterThanOrEqualTo(Byte value) {
+        public Criteria andRetryTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("retry_type >=", value, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeLessThan(Byte value) {
+        public Criteria andRetryTypeLessThan(Integer value) {
             addCriterion("retry_type <", value, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeLessThanOrEqualTo(Byte value) {
+        public Criteria andRetryTypeLessThanOrEqualTo(Integer value) {
             addCriterion("retry_type <=", value, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeIn(List<Byte> values) {
+        public Criteria andRetryTypeIn(List<Integer> values) {
             addCriterion("retry_type in", values, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeNotIn(List<Byte> values) {
+        public Criteria andRetryTypeNotIn(List<Integer> values) {
             addCriterion("retry_type not in", values, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeBetween(Byte value1, Byte value2) {
+        public Criteria andRetryTypeBetween(Integer value1, Integer value2) {
             addCriterion("retry_type between", value1, value2, "retryType");
             return (Criteria) this;
         }
 
-        public Criteria andRetryTypeNotBetween(Byte value1, Byte value2) {
+        public Criteria andRetryTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("retry_type not between", value1, value2, "retryType");
             return (Criteria) this;
         }
@@ -1495,52 +1495,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingEqualTo(Byte value) {
+        public Criteria andIsRetryingEqualTo(Boolean value) {
             addCriterion("is_retrying =", value, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingNotEqualTo(Byte value) {
+        public Criteria andIsRetryingNotEqualTo(Boolean value) {
             addCriterion("is_retrying <>", value, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingGreaterThan(Byte value) {
+        public Criteria andIsRetryingGreaterThan(Boolean value) {
             addCriterion("is_retrying >", value, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsRetryingGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_retrying >=", value, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingLessThan(Byte value) {
+        public Criteria andIsRetryingLessThan(Boolean value) {
             addCriterion("is_retrying <", value, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingLessThanOrEqualTo(Byte value) {
+        public Criteria andIsRetryingLessThanOrEqualTo(Boolean value) {
             addCriterion("is_retrying <=", value, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingIn(List<Byte> values) {
+        public Criteria andIsRetryingIn(List<Boolean> values) {
             addCriterion("is_retrying in", values, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingNotIn(List<Byte> values) {
+        public Criteria andIsRetryingNotIn(List<Boolean> values) {
             addCriterion("is_retrying not in", values, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingBetween(Byte value1, Byte value2) {
+        public Criteria andIsRetryingBetween(Boolean value1, Boolean value2) {
             addCriterion("is_retrying between", value1, value2, "isRetrying");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetryingNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsRetryingNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_retrying not between", value1, value2, "isRetrying");
             return (Criteria) this;
         }
@@ -1555,52 +1555,52 @@ public class LogEsbRequestResumeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessEqualTo(Byte value) {
+        public Criteria andIsRetrySuccessEqualTo(Boolean value) {
             addCriterion("is_retry_success =", value, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessNotEqualTo(Byte value) {
+        public Criteria andIsRetrySuccessNotEqualTo(Boolean value) {
             addCriterion("is_retry_success <>", value, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessGreaterThan(Byte value) {
+        public Criteria andIsRetrySuccessGreaterThan(Boolean value) {
             addCriterion("is_retry_success >", value, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsRetrySuccessGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_retry_success >=", value, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessLessThan(Byte value) {
+        public Criteria andIsRetrySuccessLessThan(Boolean value) {
             addCriterion("is_retry_success <", value, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessLessThanOrEqualTo(Byte value) {
+        public Criteria andIsRetrySuccessLessThanOrEqualTo(Boolean value) {
             addCriterion("is_retry_success <=", value, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessIn(List<Byte> values) {
+        public Criteria andIsRetrySuccessIn(List<Boolean> values) {
             addCriterion("is_retry_success in", values, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessNotIn(List<Byte> values) {
+        public Criteria andIsRetrySuccessNotIn(List<Boolean> values) {
             addCriterion("is_retry_success not in", values, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessBetween(Byte value1, Byte value2) {
+        public Criteria andIsRetrySuccessBetween(Boolean value1, Boolean value2) {
             addCriterion("is_retry_success between", value1, value2, "isRetrySuccess");
             return (Criteria) this;
         }
 
-        public Criteria andIsRetrySuccessNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsRetrySuccessNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_retry_success not between", value1, value2, "isRetrySuccess");
             return (Criteria) this;
         }
@@ -1662,6 +1662,66 @@ public class LogEsbRequestResumeExample {
 
         public Criteria andRetryNumNotBetween(Integer value1, Integer value2) {
             addCriterion("retry_num not between", value1, value2, "retryNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateIsNull() {
+            addCriterion("enable_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateIsNotNull() {
+            addCriterion("enable_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateEqualTo(Integer value) {
+            addCriterion("enable_state =", value, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateNotEqualTo(Integer value) {
+            addCriterion("enable_state <>", value, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateGreaterThan(Integer value) {
+            addCriterion("enable_state >", value, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("enable_state >=", value, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateLessThan(Integer value) {
+            addCriterion("enable_state <", value, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateLessThanOrEqualTo(Integer value) {
+            addCriterion("enable_state <=", value, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateIn(List<Integer> values) {
+            addCriterion("enable_state in", values, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateNotIn(List<Integer> values) {
+            addCriterion("enable_state not in", values, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateBetween(Integer value1, Integer value2) {
+            addCriterion("enable_state between", value1, value2, "enableState");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("enable_state not between", value1, value2, "enableState");
             return (Criteria) this;
         }
 
