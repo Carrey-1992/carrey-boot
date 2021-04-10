@@ -23,6 +23,14 @@
         <module>demo-zuul</module>
         <module>demo-sleuth</module>
         <module>demo-turbine</module>
+        <module>consul-order</module>
+        <module>consul-product</module>
+        <module>demo-consul-config</module>
+        <module>demo-nacos</module>
+        <module>nacos-order</module>
+        <module>nacos-product</module>
+        <module>nacos-ribbon</module>
+        <module>demo-nacos-config</module>
     </modules>
 
 

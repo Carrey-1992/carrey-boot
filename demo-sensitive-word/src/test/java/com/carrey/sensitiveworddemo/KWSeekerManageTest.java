@@ -1,7 +1,7 @@
 package com.carrey.sensitiveworddemo;
 
 import com.carrey.sensitive.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 

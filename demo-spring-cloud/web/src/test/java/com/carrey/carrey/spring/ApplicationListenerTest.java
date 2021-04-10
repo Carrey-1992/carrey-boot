@@ -2,7 +2,7 @@ package com.carrey.carrey.spring;
 
 import com.carrey.carrey.async.DemoEvent;
 import com.carrey.carrey.domain.MainConfig;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

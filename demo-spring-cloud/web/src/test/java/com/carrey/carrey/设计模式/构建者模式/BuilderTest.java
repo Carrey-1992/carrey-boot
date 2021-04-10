@@ -1,6 +1,6 @@
 package com.carrey.carrey.设计模式.构建者模式;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Carrey

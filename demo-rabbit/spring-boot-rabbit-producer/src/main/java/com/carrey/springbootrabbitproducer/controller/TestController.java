@@ -23,16 +23,16 @@ public class TestController {
 
     @PostMapping("msg1")
     public void sendMsg1() throws Exception {
-        sender.sendMsg1("msg1",new HashMap<>());
+        sender.sendMsg1("msg1",new HashMap<String,Object>());
     }
 
     @PostMapping("msg2")
     public void sendMsg2() throws Exception {
-        sender.sendMsg2("msg2",new HashMap<>());
+        sender.sendMsg2("msg2",new HashMap<String,Object>());
     }
 
     @PostMapping("msg3")
     public void sendMsg3() throws Exception {
-        sender.sendMsg3("msg3",new HashMap<>());
+        sender.sendMsg3("msg3",new HashMap<String,Object>());
     }
 }

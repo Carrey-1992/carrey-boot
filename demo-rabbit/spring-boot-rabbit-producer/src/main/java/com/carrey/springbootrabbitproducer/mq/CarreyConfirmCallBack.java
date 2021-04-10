@@ -1,8 +1,8 @@
 package com.carrey.springbootrabbitproducer.mq;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.support.CorrelationData;
 
 /**
  * Created by smlz on 2019/10/9.

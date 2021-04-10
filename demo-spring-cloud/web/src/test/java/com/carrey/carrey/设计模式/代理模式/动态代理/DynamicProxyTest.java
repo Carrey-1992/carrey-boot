@@ -1,6 +1,6 @@
 package com.carrey.carrey.设计模式.代理模式.动态代理;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DynamicProxyTest {
     @Test

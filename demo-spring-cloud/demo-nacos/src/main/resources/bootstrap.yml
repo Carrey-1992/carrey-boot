@@ -1,0 +1,9 @@
+server:
+  port: 8848
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.20.3:8848
+  application:
+    name: demo-nacos

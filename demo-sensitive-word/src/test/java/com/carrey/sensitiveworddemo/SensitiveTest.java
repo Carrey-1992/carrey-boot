@@ -2,7 +2,7 @@ package com.carrey.sensitiveworddemo;
 
 import com.github.houbb.sensitive.word.bs.SensitiveWordBs;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Random;

@@ -1,0 +1,15 @@
+server:
+  port: 8813
+spring:
+  application:
+    # 是标识了应用名，注册到consul之后，显示的就是它
+    name: consul-product
+  cloud:
+    consul:
+      host: 172.16.20.3
+      port: 8500
+      discovery:
+        # 使用ip地址，如果不写它，默认是域名，那样测试起来很麻烦
+        prefer-ip-address: true
+        # consul做健康检查的路径
+        healthCheckPath: /consul/health

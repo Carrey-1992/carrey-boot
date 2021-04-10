@@ -1,6 +1,6 @@
 package com.carrey.carrey.算法.二分查找;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Carrey

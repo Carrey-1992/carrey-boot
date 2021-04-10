@@ -1,6 +1,6 @@
 package com.carrey.carrey.设计模式.职责链模式;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TakeLeaveTest {
 

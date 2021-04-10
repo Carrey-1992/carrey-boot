@@ -1,6 +1,6 @@
 package com.carrey.carrey.并发编程;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.locks.StampedLock;
 

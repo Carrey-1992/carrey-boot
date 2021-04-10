@@ -1,0 +1,25 @@
+server:
+  port: 8814
+
+spring:
+  application:
+    name: consulConfig
+  cloud:
+    consul:
+      host: 172.16.20.3
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        # 使用ip地址，如果不写它，默认是域名，那样测试起来很麻烦
+        prefer-ip-address: true
+        # consul做健康检查的路径
+        healthCheckPath: /consul/health
+      config:
+        import-check:
+          enabled: false
+        enabled: true
+        watch:
+          enabled: true
+        prefix: config
+        defaultContext: ${spring.application.name}
+        format: YAML

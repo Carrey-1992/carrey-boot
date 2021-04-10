@@ -3,16 +3,13 @@ package com.carrey.carrey.spring;
 import com.carrey.carrey.aop.IAopDemoTest;
 import com.carrey.carrey.config.AopConfig;
 import com.carrey.carrey.config.TransactionConfig;
-import com.carrey.carrey.config.decorate.DecorateConfig;
-import com.carrey.carrey.decorate.FilterProccess;
 import com.carrey.carrey.domain.MainConfig;
 import com.carrey.carrey.domain.MyTestBean;
 import com.carrey.carrey.transaction.IUserService;
 import com.carrey.carrey.transaction.User;
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -58,12 +55,12 @@ public class BeanFactoryTest {
         Assert.assertEquals("demoParam",bean.testMethod("demoParam"));
     }
 
-    @Test
-    public void decorateTest() {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(DecorateConfig.class);
-        FilterProccess filterProccess = (FilterProccess)applicationContext.getBean("decorateContext");
-        filterProccess.filter(Lists.newArrayList("1","2","3"));
-    }
+//    @Test
+//    public void decorateTest() {
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(DecorateConfig.class);
+//        FilterProccess filterProccess = (FilterProccess)applicationContext.getBean("decorateContext");
+//        filterProccess.filter(Lists.newArrayList("1","2","3"));
+//    }
 
     @Test
     public void transactionTest() {

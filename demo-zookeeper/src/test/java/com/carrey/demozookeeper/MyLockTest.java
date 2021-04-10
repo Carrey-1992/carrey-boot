@@ -2,7 +2,7 @@ package com.carrey.demozookeeper;
 
 import com.carrey.demozookeeper.lock.lock.Lock;
 import com.carrey.demozookeeper.lock.lock.ZookeeperLock;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;

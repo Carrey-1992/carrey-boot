@@ -1,6 +1,6 @@
 package com.carrey.carrey.设计模式.状态模式;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Carrey

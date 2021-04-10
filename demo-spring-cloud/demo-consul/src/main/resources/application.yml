@@ -6,7 +6,7 @@ spring:
     name: consulServer
   cloud:
     consul:
-      host: 127.16.20.3
+      host: 172.16.20.3
       port: 8500
       discovery:
         # 使用ip地址，如果不写它，默认是域名，那样测试起来很麻烦

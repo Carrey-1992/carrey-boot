@@ -2,7 +2,7 @@ package com.carrey.carrey.设计模式.观察者模式.eventbus;
 
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.Executors;
 
