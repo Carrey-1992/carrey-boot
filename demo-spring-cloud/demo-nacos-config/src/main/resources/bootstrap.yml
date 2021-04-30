@@ -1,0 +1,16 @@
+server:
+  port: 8851
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.20.3:8848
+      config:
+        server-addr: 172.16.20.3:8848
+        namespace: df76bf2d-e339-4779-8842-ba2f383b0dce
+        file-extension: yml
+
+  application:
+    name: demo-nacos-config
+  profiles:
+    active: dev

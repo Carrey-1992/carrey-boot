@@ -1,0 +1,10 @@
+server:
+  port: 8081
+dubbo:
+  application:
+    name: dubbo-server
+  registry:
+    address: nacos://172.16.20.3:8848
+  protocol:
+    name: dubbo
+    port: -1

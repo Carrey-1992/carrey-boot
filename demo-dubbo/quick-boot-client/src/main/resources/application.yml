@@ -1,0 +1,12 @@
+server:
+  port: 8082
+dubbo:
+  application:
+    name: dubbo-client
+  #注册中心
+  registry:
+    address: nacos://172.16.20.3:8848
+  protocol:
+    name: dubbo
+    port: 20881
+
