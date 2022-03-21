@@ -1,4 +1,4 @@
-package com.carrey.carrey.domain;
+package com.carrey.carrey.domain.bean;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.type.AnnotationMetadata;

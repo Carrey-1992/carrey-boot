@@ -2,7 +2,6 @@ package com.carrey.carrey.domain;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 /**
  * @author Conway
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @ComponentScan("com.carrey.carrey.domain.bean")
-@Import({MyTestImport.class,MyTestImportSelector.class,MyTestImportRegistrar.class})
+//@Import({MyTestImport.class,MyTestImportSelector.class,MyTestImportRegistrar.class})
 public class MainConfig {
 
 //    @Bean(autowire = Autowire.BY_NAME)

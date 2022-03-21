@@ -1,15 +1,11 @@
 package com.carrey.demo.controller;
 
 import com.carrey.demo.config.exception.CarreyRefusedException;
-import com.carrey.demo.config.exception.CarreyRefusedInfo;
-import com.carrey.demo.config.exception.ExceptionConst;
 import com.carrey.demo.entity.User;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +21,11 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("user")
 public class UserController2 {
+
+    @PostMapping("/name")
+    public String paramException(@RequestParam(value = "userName") String userName) {
+        return userName;
+    }
 
     @PostMapping("/list")
     public List<User> getUserList(@RequestBody User user) {
@@ -104,11 +105,11 @@ public class UserController2 {
      * @param request
      * @return
      */
-    @ResponseBody
-    @ExceptionHandler({Throwable.class})
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public CarreyRefusedInfo error2(Throwable throwable, HttpServletRequest request) {
-        log.error("uri:"+request.getRequestURI()+",errorMsg:"+throwable.getMessage(), throwable);
-        return new CarreyRefusedInfo(ExceptionConst.UNKNOWN_ERROR_CODE,"非全局异常处理");
-    }
+//    @ResponseBody
+//    @ExceptionHandler({Throwable.class})
+//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//    public CarreyRefusedInfo error2(Throwable throwable, HttpServletRequest request) {
+//        log.error("uri:"+request.getRequestURI()+",errorMsg:"+throwable.getMessage(), throwable);
+//        return new CarreyRefusedInfo(ExceptionConst.UNKNOWN_ERROR_CODE,"非全局异常处理");
+//    }
 }

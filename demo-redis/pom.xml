@@ -12,6 +12,12 @@
     <artifactId>demo-redis</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.6.5</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <dependency>
             <groupId>redis.clients</groupId>

@@ -1,6 +1,6 @@
 package com.carrey.carrey.processor;
 
-import com.carrey.carrey.domain.ApiTypeFilter;
+import com.carrey.carrey.domain.bean.ApiTypeFilter;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;

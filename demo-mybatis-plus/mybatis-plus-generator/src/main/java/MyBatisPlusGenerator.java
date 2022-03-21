@@ -129,21 +129,21 @@ public class MyBatisPlusGenerator {
     private static PackageConfig setPackageConfig(AutoGenerator mpg) {
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName("purchase-generator");//父包模块名
-        pc.setParent("com.kunchi.basicdata");//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-        pc.setEntity("po");
-        pc.setMapper("dao");
-        pc.setXml("mapping");
+        pc.setParent("com.lenovo.scc.commserve");//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+        pc.setEntity("entity");
+        pc.setMapper("mapper");
+        pc.setXml("com.lenovo.scc.commserve.mapper");
         mpg.setPackageInfo(pc);
         return pc;
     }
 
     private static void setDataSourceConfig(AutoGenerator mpg) {
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://offline-tech.ikunchi.com:30037/obc_data_center?characterEncoding=UTF-8&useSSL=false");
-        // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("eGaTB0mSfkL2AIRl");
+        dsc.setUrl("jdbc:oracle:thin:@10.99.203.31:1521/uatcsen");
+        dsc.setSchemaName("PRDSCCOMMON");
+        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
+        dsc.setUsername("prdscsystem");
+        dsc.setPassword("prdscsystem");
         mpg.setDataSource(dsc);
     }
 

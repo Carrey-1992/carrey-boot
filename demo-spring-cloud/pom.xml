@@ -12,6 +12,16 @@
 
     <artifactId>demo-spring-cloud</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+            <version>2.1.1.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+
     <modules>
         <module>demo-eureka</module>
         <module>demo-consul</module>
@@ -32,6 +42,7 @@
         <module>nacos-ribbon</module>
         <module>demo-nacos-config</module>
         <module>demo-sentinel</module>
+        <module>demo-security</module>
     </modules>
 
 
